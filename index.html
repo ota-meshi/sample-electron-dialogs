@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Dialogs!</title>
+	<style type="text/css">
+		dialog {
+		    border: solid 1px #aaa;
+		    border-radius: 5px;
+		    box-shadow: 0 8px 10px 1px rgba(0,0,0,0.14), 0 3px 14px 2px rgba(0,0,0,0.12), 0 5px 5px -3px rgba(0,0,0,0.3);
+		}
+	</style>
+</head>
+<body>
+	<h5>dialig tag</h5>
+	<dialog id="sample-dialog">
+		<form method="dialog">
+			<input id="input" placeholder="text入力" /><br>
+			<button type="submit" value="cancel">Cancel</button>
+			<button type="submit" value="ok">Ok</button>
+		</form>
+	</dialog>
+	<button onclick="showModalDialogElement()">dialog showModal</button>
+
+
+
+	<h5>Electron remote dialog</h5>
+    <button onclick="showOpenDialog()">open dialog</button>
+    <button onclick="showSaveDialog()">save dialog</button>
+    <button onclick="showMessageBox()">message box</button>
+    <button onclick="showErrorBox()">error box</button>
+	
+
+	<script type="text/javascript" src="./index.js"></script>
+</body>
+</html>
