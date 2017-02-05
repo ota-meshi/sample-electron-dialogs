@@ -12,7 +12,10 @@ function showModalDialogElement() {
 
 	return new Promise((resolve, reject) => {
 		dlg.showModal();
-		dlg.addEventListener('close', (event) => {
+
+		function onClose(event) {
+			// 2017/2/5現在Chromium:v54のためaddEventListenerの{once: true}は利用できないため自力で解放。v55になれば{once: true}を利用するのが良いと思います。
+			dlg.removeEventListener('close', onClose);
 			if (dlg.returnValue === 'ok') { //returnValueにvalue属性の値が入る
 				const inputValue = document.querySelector('#input').value;//入力値を取得
 				alert(inputValue);//テストのためalert
@@ -20,8 +23,8 @@ function showModalDialogElement() {
 			} else {
 				reject();
 			}
-
-		}, {once: true});
+		}
+		dlg.addEventListener('close', onClose, {once: true});
 	});
 }
 
